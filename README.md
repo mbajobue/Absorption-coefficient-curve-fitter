@@ -6,7 +6,7 @@ ACCF is a simple R script that fits experimental optical-absorption coefficient 
 
 After downloading the script, you can run it as any other R script. 
 
-The data file must be a csv file containing the incident radiation energy (in eV) in odd columns and the measured absorption coefficient (in 1/cm) in even columns. Columns 1 and 2 must correspond to data of the fist optical-absorption experiment, columns 3 and 4 correspond  to the second experiment and so on.
+The data file must be a csv file containing the incident radiation energy (in eV) in odd columns and the measured absorption coefficient (in 1/cm) in even columns. Columns 1 and 2 must correspond to data of the first optical-absorption experiment, columns 3 and 4 correspond  to the second experiment and so on.
 
 ### From the R console:
 
@@ -18,22 +18,22 @@ The experimental data should be located in the same directory as the ACCF.R scri
 
 	Rscript ACCF.R /PATH/TO/DATAFILE.csv
 
-If no arguments are given, the experimental data is assumed to be in the same directory as ACCF.R.
+If no arguments are given, the experimental data is assumed to be in the same directory as ACCF.R as "data.csv".
 
 ## Theoretical model
 
 For low energy radiation (lower than the band gap energy) the absorption coefficient is characterized by the Urbach's rule.
 
-	alpha1*(exp((e-eg)/en))  for  e < ec  	(1)
+	alpha1*(exp((e-eg)/en))		for  e < ec  	(1)
 
-The absorption at high energies for indirect band-gap semiconductors is described by equation (2). This is an approximation that doesn't take into account the energy of the indirect transition photon, which is usually a goop approximation at ambient temperature.
+The absorption at high energies for indirect band-gap semiconductors is described by equation (2). This is an approximation that doesn't take into account the energy of the indirect transition photon, which is usually a good approximation at ambient temperature.
 
-	alpha2*(e-eg)^2  for  e > ec  		(2)
+	alpha2*(e-eg)^2			for  e > ec  	(2)
 
 Since both equations are describing two regions of the same curve, the must fulfill the condition for continuity at one point (*ec*). In other words, both equations and their derivatives must have the same value at *ec*. After a little bit of algebra we obtain the following conditions:
 
-	ec = 2*en + eg				(3)
-	en = sqrt(alpha1/(4*alpha2))*exp(1)	(4)
+	ec = 2*en + eg					(3)
+	en = sqrt(alpha1/(4*alpha2))*exp(1)		(4)
 
 
 ## The algorithm
