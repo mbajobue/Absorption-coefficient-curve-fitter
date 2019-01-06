@@ -30,7 +30,7 @@ The absorption at high energies for indirect band-gap semiconductors is describe
 
 	alpha2*(e-eg)^2			for  e > ec  	(2)
 
-Since both equations are describing two regions of the same curve, the must fulfill the condition for continuity at one point (*ec*). In other words, both equations and their derivatives must have the same value at *ec*. After a little bit of algebra we obtain the following conditions:
+Since both equations are describing two regions of the same curve, they must fulfill the condition for continuity at one point (*ec*). In other words, both equations and their derivatives must have the same value at *ec*. After a little bit of algebra we obtain the following conditions:
 
 	ec = 2*en + eg					(3)
 	en = sqrt(alpha1/(4*alpha2))*exp(1)		(4)
@@ -39,10 +39,10 @@ Since both equations are describing two regions of the same curve, the must fulf
 ## The algorithm
 
 1. A first approximation of *eg* is obtained by a line fitting of the high energy region data. The intersection of this line and the x-axis is our first estimation of *eg*.
-2. A small value of en is assumed (0.1 eV) since *ec* and *eg* have a similar value.
+2. A small value of *en* is assumed (0.1 eV) since *ec* and *eg* have similar values.
 3. *alpha2* and *eg* are estimated with a non-linear fit to equation (2).
 4. *alpha1* is estimated with a non-linear fit to equation (1).
-5. A new estimation of en and *ec* are obtained with equations (3) and (4).
+5. A new estimation of *en* and *ec* are obtained with equations (3) and (4).
 6. We return to the third step and repeat the process until the difference between estimated values of consecutive  iterations is sufficiently small.
 
 
